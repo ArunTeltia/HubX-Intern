@@ -63,8 +63,8 @@ const Dashboard = props => {
     <Fragment>
       <h1 className="large text-primary">Add Details of the event</h1>
       <p className="lead">
-        <i className="fa fa-meetup" aria-hidden="true"></i>Set a event and Meet with
-        the new people
+        <i className="fa fa-meetup" aria-hidden="true"></i>Set a event and Meet
+        with the new people
       </p>
       <small>* = required field</small>
       <form className="form">
@@ -167,15 +167,21 @@ const Dashboard = props => {
             onChange={e => onChange(e)}
           />
         </div>
-        <div className="form-group">
+        {/* <div className="form-group">
           <textarea
             name="description"
             cols="30"
             rows="5"
             placeholder="Describe the goal of the event"
           ></textarea>
-        </div>
-        <input type="submit" className="btn btn-primary my-1" />
+        </div> */}
+        <input
+          onClick={e => {
+            onSubmit(e);
+          }}
+          type="submit"
+          className="btn btn-primary my-1"
+        />
         <a className="btn btn-light my-1" href="dashboard.html">
           Go Back
         </a>
