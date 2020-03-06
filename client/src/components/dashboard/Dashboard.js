@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import PropTypes from "prop-types";
+
 import axios from "axios";
 const Dashboard = props => {
   const [formData, setFormData] = useState({
@@ -32,7 +32,7 @@ const Dashboard = props => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = async e => {
-    e.prventDefault();
+  
     const newEvent = {
       Organisation,
       Email,
@@ -161,20 +161,13 @@ const Dashboard = props => {
         <div className="form-group">
           <h4>Date of Event</h4>
           <input
-            type="date"
+            type="text"
             name="DateOfEvent"
             value={DateOfEvent}
             onChange={e => onChange(e)}
           />
         </div>
-        {/* <div className="form-group">
-          <textarea
-            name="description"
-            cols="30"
-            rows="5"
-            placeholder="Describe the goal of the event"
-          ></textarea>
-        </div> */}
+       
         <input
           onClick={e => {
             onSubmit(e);
@@ -189,7 +182,4 @@ const Dashboard = props => {
     </Fragment>
   );
 };
-
-Dashboard.propTypes = {};
-
 export default Dashboard;
