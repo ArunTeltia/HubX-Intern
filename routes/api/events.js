@@ -3,7 +3,7 @@ const router = express.Router();
 const config = require("config");
 const auth = require("../../middleware/auth");
 const { check, validationResult } = require("express-validator");
-
+const User = require("../../models/User");
 const Events = require("../../models/Events");
 
 //@route Post api/events
@@ -85,5 +85,14 @@ router.post(
     }
   }
 );
+router.get('/', async (req,res)=>{
+try {
+  const events = await Events.find().populate('user');
+  res.json(events);
+} catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+}
+});
 
 module.exports = router;
