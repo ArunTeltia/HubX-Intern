@@ -23,6 +23,7 @@ class EventList extends Component {
   render() {
     return (
     <div>
+    <h1 >All Events registered are</h1>
         {this.state.users.map(user => (
           <li key={user.id} className='container' type="none" style={{backgroundColor:'gray'} }>
             <li>organisation: {user.Organisation}</li>
